@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Strategy & Evolution Timeline — Adam Aziz</title>
+<meta name="description" content="Nine quarters, three phases: how Cisco's Data Solutions & Insights capability evolved from reporting foundations to AI-enabled, persona-based decisioning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0e14;
+    --bg-alt: #10141c;
+    --panel: #151a24;
+    --border: #232a38;
+    --text: #e8ebf2;
+    --text-dim: #9aa4b8;
+    --accent: #d4a24e;
+    --accent-dim: #8a6c33;
+    --tl-foundations: #6ea8ff;
+    --tl-ai: #d4a24e;
+    --tl-pbr: #7fd9c4;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --radius: 4px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  /* HEADER */
+  header { padding: 72px 0 44px; border-bottom: 1px solid var(--border); }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(30px, 4.6vw, 46px); font-weight: 700; line-height: 1.14; letter-spacing: -0.01em;
+    max-width: 700px;
+  }
+  header p.lede { margin-top: 18px; max-width: 620px; color: var(--text-dim); font-size: 16px; }
+
+  .legend { margin-top: 34px; display: flex; gap: 26px; flex-wrap: wrap; font-size: 13px; color: var(--text-dim); }
+  .legend-item { display: flex; align-items: center; gap: 9px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .legend-dot.foundations { background: var(--tl-foundations); }
+  .legend-dot.ai { background: var(--tl-ai); }
+  .legend-dot.pbr { background: var(--tl-pbr); }
+
+  /* PHASE PROGRESS BAR */
+  .phase-bar-section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+  .phase-bar-label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-dim); margin-bottom: 14px;
+  }
+  .phase-bar { display: flex; height: 34px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+  .phase-seg { display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: #0b0e14; }
+  .phase-seg.foundations { background: var(--tl-foundations); width: 44.4%; }
+  .phase-seg.ai { background: var(--tl-ai); width: 22.2%; }
+  .phase-seg.pbr { background: var(--tl-pbr); width: 33.4%; }
+  .phase-captions { display: flex; margin-top: 10px; font-size: 12px; color: var(--text-dim); }
+  .phase-captions span:nth-child(1) { width: 44.4%; }
+  .phase-captions span:nth-child(2) { width: 22.2%; }
+  .phase-captions span:nth-child(3) { width: 33.4%; }
+
+  /* TIMELINE */
+  .timeline-section { padding: 48px 0 80px; }
+  .section-tag {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 34px;
+  }
+
+  .tl {
+    position: relative;
+    padding-left: 34px;
+  }
+  .tl::before {
+    content: "";
+    position: absolute;
+    left: 5px; top: 6px; bottom: 6px; width: 1px;
+    background: var(--border);
+  }
+
+  .tl-item { position: relative; padding-bottom: 36px; }
+  .tl-item:last-child { padding-bottom: 0; }
+
+  .tl-dot {
+    position: absolute; left: -34px; top: 5px; width: 11px; height: 11px; border-radius: 50%;
+    border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--border);
+  }
+  .tl-item.foundations .tl-dot { background: var(--tl-foundations); }
+  .tl-item.ai .tl-dot { background: var(--tl-ai); }
+  .tl-item.pbr .tl-dot { background: var(--tl-pbr); }
+
+  .tl-card {
+    border: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    border-radius: var(--radius);
+    background: var(--panel);
+    padding: 20px 24px;
+  }
+  .tl-item.foundations .tl-card { border-left-color: var(--tl-foundations); }
+  .tl-item.ai .tl-card { border-left-color: var(--tl-ai); }
+  .tl-item.pbr .tl-card { border-left-color: var(--tl-pbr); }
+
+  .tl-meta {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    margin-bottom: 10px; flex-wrap: wrap;
+  }
+  .tl-quarter { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--text-dim); }
+  .tl-phase-chip {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 100px; border: 1px solid var(--border); color: var(--text-dim);
+  }
+  .tl-item.foundations .tl-phase-chip { color: var(--tl-foundations); border-color: color-mix(in srgb, var(--tl-foundations) 40%, var(--border)); }
+  .tl-item.ai .tl-phase-chip { color: var(--tl-ai); border-color: color-mix(in srgb, var(--tl-ai) 40%, var(--border)); }
+  .tl-item.pbr .tl-phase-chip { color: var(--tl-pbr); border-color: color-mix(in srgb, var(--tl-pbr) 40%, var(--border)); }
+
+  .tl-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.005em; }
+  .tl-card p { font-size: 14px; color: var(--text-dim); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0 48px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    font-family: var(--mono); font-size: 11.5px; color: var(--text-dim);
+  }
+
+  @media (max-width: 620px) {
+    .tl { padding-left: 26px; }
+    .tl-dot { left: -26px; }
+    .phase-captions { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">DATA SOLUTIONS &amp; INSIGHTS · FY23 – FY26</div>
+    <h1>Data Strategy & Evolution</h1>
+    <p class="lede">Nine quarters, three phases: how Cisco's Data Solutions &amp; Insights capability moved from reporting foundations, through AI-assisted analytics, to persona-based, AI-enabled decisioning.</p>
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot foundations"></span>Analytics &amp; data foundations</div>
+      <div class="legend-item"><span class="legend-dot ai"></span>AI-enabled analytics</div>
+      <div class="legend-item"><span class="legend-dot pbr"></span>Performance-based refresh &amp; decisioning</div>
+    </div>
+  </header>
+
+  <section class="phase-bar-section">
+    <div class="phase-bar-label">Nine quarters at a glance</div>
+    <div class="phase-bar">
+      <div class="phase-seg foundations">4 quarters</div>
+      <div class="phase-seg ai">2 quarters</div>
+      <div class="phase-seg pbr">3 quarters</div>
+    </div>
+    <div class="phase-captions">
+      <span>Foundations</span>
+      <span>AI-enabled</span>
+      <span>Laptop Performance-Based Refresh &amp; decisioning</span>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <div class="section-tag">The mapping</div>
+
+    <div class="tl">
+
+      <div class="tl-item foundations">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-quarter">FY23 Q2 – Q4</span><span class="tl-phase-chip">Foundations</span></div>
+          <h4>Foundation, KPI Reporting &amp; Early Self-Service</h4>
+          <p>ThoughtSpot, KPI metrics, data integration, security, asset reporting and operational analytics. Established DSI as a central analytics capability with trusted reporting and early self-service.</p>
+        </div>
+      </div>
+
+      <div class="tl-item foundations">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-quarter">FY24 Q1 – Q2</span><span class="tl-phase-chip">Foundations</span></div>
+          <h4>Trusted Data Foundations &amp; Governance</h4>
+          <p>Snowflake ingestion, governance, Data Diet, DBT migration and Business Objects replacement. Shifted DSI beyond reporting into a stronger data product and operations capability.</p>
+        </div>
+      </div>
+
+      <div class="tl-item foundations">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-quarter">FY24 Q3 – Q4</span><span class="tl-phase-chip">Foundations</span></div>
+          <h4>Operational Excellence &amp; Scale</h4>
+          <p>Power BI workspace audit, tripwires, DBT ops integration, ThoughtSpot expansion and Snowflake resiliency. Improved reliability, scalability and adoption while reducing operational risk.</p>
+        </div>
+      </div>
+
+      <div class="tl-item foundations">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-quarter">FY25 Q1 – Q2</span><span class="tl-phase-chip">Foundations</span></div>
+          <h4>KPI Maturity &amp; Platform Simplification</h4>
+          <p>KPI development, OS compliance, Mac data collection, dashboard improvements and GCP disconnect. Strengthened DSI as a trusted decision-support function with simpler data environments.</p>
+        </div>
+      </div>
+
+      <div class="tl-item ai">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-quarter">FY25 Q4</span><span class="tl-phase-chip">AI-enabled</span></div>
+          <h4>Automation &amp; AI-Assisted Analytics</h4>
+          <p>Aisera integration, Insights Center automation, AI case summaries and data quality analysis. Started the transition from traditional BI toward AI-assisted analytics and automated insight generation.</p>
+        </div>
+      </div>
+
+      <div class="tl-item ai">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-quarter">FY26 Q1</span><span class="tl-phase-chip">AI-enabled</span></div>
+          <h4>AI Decision Support &amp; Device Intelligence</h4>
+          <p>DSI Assistant, Support Case Q&amp;A, monthly summarisation, Device Performance Score and Laptop Performance-Based Refresh reasoning. Created the foundation for AI-enabled decision support and proactive device insights.</p>
+        </div>
+      </div>
+
+      <div class="tl-item pbr">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-quarter">FY26 Q2</span><span class="tl-phase-chip">Laptop Performance-Based Refresh &amp; decisioning</span></div>
+          <h4>Predictive &amp; Prescriptive Analytics</h4>
+          <p>Laptop Performance-Based Refresh recommendations, forecasting, app utilisation, Click2Chat analytics and Snowflake Stage. Expanded into predictive and prescriptive analytics supporting refresh and stock decisions.</p>
+        </div>
+      </div>
+
+      <div class="tl-item pbr">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-quarter">FY26 Q3</span><span class="tl-phase-chip">Laptop Performance-Based Refresh &amp; decisioning</span></div>
+          <h4>AI Scale, Resiliency &amp; Laptop Performance-Based Refresh Expansion</h4>
+          <p>KPI AI summaries, Laptop Performance-Based Refresh app utilisation, DBT Docs discovery, Fleet migration and AI dashboard creation. Matured AI and Laptop Performance-Based Refresh while improving lineage, resiliency, observability and speed to insight.</p>
+        </div>
+      </div>
+
+      <div class="tl-item pbr">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-quarter">FY26 Q4</span><span class="tl-phase-chip">Laptop Performance-Based Refresh &amp; decisioning</span></div>
+          <h4>Persona-Based Decisioning &amp; AI-Enabled BI</h4>
+          <p>Laptop Performance-Based Refresh Personas, Splunk observability, forecasting, app utilisation expansion and AI-enabled BI. Moved toward richer persona-based decisioning combining performance, usage, forecasting and AI.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>Adam Aziz — Data Analytics &amp; AI Leader</span>
+    <span>Data Strategy & Evolution mapping, reference view · 10-Sep-2026</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
