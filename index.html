@@ -80,6 +80,23 @@
     color: var(--accent); margin-bottom: 34px;
   }
 
+  .tl-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .tl-col-head {
+    display: flex; align-items: center; gap: 9px;
+    font-weight: 700; font-size: 14.5px; margin-bottom: 22px;
+  }
+  .tl-col-head .legend-dot { width: 11px; height: 11px; }
+
+  @media (max-width: 820px) {
+    .tl-columns { grid-template-columns: 1fr; gap: 44px; }
+  }
+
   .tl {
     position: relative;
     padding-left: 34px;
@@ -178,86 +195,107 @@
   <section class="timeline-section">
     <div class="section-tag">The mapping</div>
 
-    <div class="tl">
+    <div class="tl-columns">
 
-      <div class="tl-item foundations">
-        <span class="tl-dot"></span>
-        <div class="tl-card">
-          <div class="tl-meta"><span class="tl-quarter">FY23 Q2 – Q4</span><span class="tl-phase-chip">Foundations</span></div>
-          <h4>Foundation, KPI Reporting &amp; Early Self-Service</h4>
-          <p>Early features centred on introducing ThoughtSpot AI-based self-service analytics, executive KPI metrics, data integration, security, asset management reporting, proactive issue support and operational reporting, establishing DSI as a central analytics capability supporting Device Experience with trusted reporting, early self-service analytics and business-facing dashboards.</p>
+      <div class="tl-col">
+        <div class="tl-col-head"><span class="legend-dot foundations"></span>Foundations</div>
+        <div class="tl">
+
+          <div class="tl-item foundations">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-quarter">FY23 Q2 – Q4</span><span class="tl-phase-chip">Foundations</span></div>
+              <h4>Foundation, KPI Reporting &amp; Early Self-Service</h4>
+              <p>Early features centred on introducing ThoughtSpot AI-based self-service analytics, executive KPI metrics, data integration, security, asset management reporting, proactive issue support and operational reporting, establishing DSI as a central analytics capability supporting Device Experience with trusted reporting, early self-service analytics and business-facing dashboards.</p>
+            </div>
+          </div>
+
+          <div class="tl-item foundations">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-quarter">FY24 Q1 – Q2</span><span class="tl-phase-chip">Foundations</span></div>
+              <h4>Trusted Data Foundations &amp; Governance</h4>
+              <p>The roadmap expanded into establishing standards around Snowflake data ingestion, data governance, Data Diet, DBT migration, Business Objects replacement, proactive support and stakeholder data requests, shifting DSI from reporting delivery into a more mature data product and operations capability, with stronger data foundations and reduced reporting risk.</p>
+            </div>
+          </div>
+
+          <div class="tl-item foundations">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-quarter">FY24 Q3 – Q4</span><span class="tl-phase-chip">Foundations</span></div>
+              <h4>Operational Excellence &amp; Scale</h4>
+              <p>Focus moved to a Power BI workspace audit, tripwire alerts, DBT ops integration, ThoughtSpot expansion, KPI dashboard simplification and Snowflake resiliency, improving reliability, scalability and adoption of analytics products while reducing manual effort, dashboard sprawl and operational risk.</p>
+            </div>
+          </div>
+
+          <div class="tl-item foundations">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-quarter">FY25 Q1 – Q2</span><span class="tl-phase-chip">Foundations</span></div>
+              <h4>KPI Maturity &amp; Platform Simplification</h4>
+              <p>Features focused on KPI consistency, strategic and operational dashboard updates, OS security compliance tracking, Mac data collection, ThoughtSpot adoption and removing GCP dependencies, strengthening DSI's role as a trusted decision-support function by improving KPI accuracy, simplifying data environments and supporting cross-platform operational insights.</p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="tl-item foundations">
-        <span class="tl-dot"></span>
-        <div class="tl-card">
-          <div class="tl-meta"><span class="tl-quarter">FY24 Q1 – Q2</span><span class="tl-phase-chip">Foundations</span></div>
-          <h4>Trusted Data Foundations &amp; Governance</h4>
-          <p>The roadmap expanded into establishing standards around Snowflake data ingestion, data governance, Data Diet, DBT migration, Business Objects replacement, proactive support and stakeholder data requests, shifting DSI from reporting delivery into a more mature data product and operations capability, with stronger data foundations and reduced reporting risk.</p>
+      <div class="tl-col">
+        <div class="tl-col-head"><span class="legend-dot ai"></span>AI-enabled</div>
+        <div class="tl">
+
+          <div class="tl-item ai">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-quarter">FY25 Q4</span><span class="tl-phase-chip">AI-enabled</span></div>
+              <h4>Automation &amp; AI-Assisted Analytics</h4>
+              <p>The roadmap included data pipeline security, Aisera workflow integration, Insights Center KPI automation, a My Teams redesign, support case AI summaries and data quality analysis, beginning the move from traditional BI into AI-assisted analytics, automated executive insights and more proactive data quality management.</p>
+            </div>
+          </div>
+
+          <div class="tl-item ai">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-quarter">FY26 Q1</span><span class="tl-phase-chip">AI-enabled</span></div>
+              <h4>AI Decision Support &amp; Device Intelligence</h4>
+              <p>Major features included AI-enabled Support Case Q&amp;A, the DSI Assistant, monthly case summarisation, Device Performance Score, a Data Quality KPI, crisis prevention and Laptop Performance-Based Refresh reasoning modules, creating the foundation for AI-enabled decision support, proactive insights and performance-based refresh recommendations.</p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="tl-item foundations">
-        <span class="tl-dot"></span>
-        <div class="tl-card">
-          <div class="tl-meta"><span class="tl-quarter">FY24 Q3 – Q4</span><span class="tl-phase-chip">Foundations</span></div>
-          <h4>Operational Excellence &amp; Scale</h4>
-          <p>Focus moved to a Power BI workspace audit, tripwire alerts, DBT ops integration, ThoughtSpot expansion, KPI dashboard simplification and Snowflake resiliency, improving reliability, scalability and adoption of analytics products while reducing manual effort, dashboard sprawl and operational risk.</p>
-        </div>
-      </div>
+      <div class="tl-col">
+        <div class="tl-col-head"><span class="legend-dot pbr"></span>Laptop Performance-Based Refresh &amp; decisioning</div>
+        <div class="tl">
 
-      <div class="tl-item foundations">
-        <span class="tl-dot"></span>
-        <div class="tl-card">
-          <div class="tl-meta"><span class="tl-quarter">FY25 Q1 – Q2</span><span class="tl-phase-chip">Foundations</span></div>
-          <h4>KPI Maturity &amp; Platform Simplification</h4>
-          <p>Features focused on KPI consistency, strategic and operational dashboard updates, OS security compliance tracking, Mac data collection, ThoughtSpot adoption and removing GCP dependencies, strengthening DSI's role as a trusted decision-support function by improving KPI accuracy, simplifying data environments and supporting cross-platform operational insights.</p>
-        </div>
-      </div>
+          <div class="tl-item pbr">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-quarter">FY26 Q2</span><span class="tl-phase-chip">Laptop Performance-Based Refresh &amp; decisioning</span></div>
+              <h4>Predictive &amp; Prescriptive Analytics</h4>
+              <p>Features focused on laptop refresh recommendations, forecasting, app utilisation discovery, Click2Chat KPI dashboards, DSI Assistant accuracy and the Snowflake Stage environment, expanding DSI into predictive and prescriptive analytics that supported better stock planning, laptop recommendation logic and service channel visibility.</p>
+            </div>
+          </div>
 
-      <div class="tl-item ai">
-        <span class="tl-dot"></span>
-        <div class="tl-card">
-          <div class="tl-meta"><span class="tl-quarter">FY25 Q4</span><span class="tl-phase-chip">AI-enabled</span></div>
-          <h4>Automation &amp; AI-Assisted Analytics</h4>
-          <p>The roadmap included data pipeline security, Aisera workflow integration, Insights Center KPI automation, a My Teams redesign, support case AI summaries and data quality analysis, beginning the move from traditional BI into AI-assisted analytics, automated executive insights and more proactive data quality management.</p>
-        </div>
-      </div>
+          <div class="tl-item pbr">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-quarter">FY26 Q3</span><span class="tl-phase-chip">Laptop Performance-Based Refresh &amp; decisioning</span></div>
+              <h4>AI Scale, Resiliency &amp; Laptop Performance-Based Refresh Expansion</h4>
+              <p>The roadmap included Windows KPI AI summaries, support case and history table data quality KPIs, DSI Assistant resiliency, Laptop Performance-Based Refresh app utilisation, DBT Docs discovery, Fleet migration and AI-enabled dashboard creation, maturing the AI and refresh roadmap while improving data lineage, resiliency, observability and the speed to generate insight.</p>
+            </div>
+          </div>
 
-      <div class="tl-item ai">
-        <span class="tl-dot"></span>
-        <div class="tl-card">
-          <div class="tl-meta"><span class="tl-quarter">FY26 Q1</span><span class="tl-phase-chip">AI-enabled</span></div>
-          <h4>AI Decision Support &amp; Device Intelligence</h4>
-          <p>Major features included AI-enabled Support Case Q&amp;A, the DSI Assistant, monthly case summarisation, Device Performance Score, a Data Quality KPI, crisis prevention and Laptop Performance-Based Refresh reasoning modules, creating the foundation for AI-enabled decision support, proactive insights and performance-based refresh recommendations.</p>
-        </div>
-      </div>
+          <div class="tl-item pbr">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-quarter">FY26 Q4</span><span class="tl-phase-chip">Laptop Performance-Based Refresh &amp; decisioning</span></div>
+              <h4>Persona-Based Decisioning &amp; AI-Enabled BI</h4>
+              <p>Features included Laptop Performance-Based Refresh persona profiles, Splunk device observability ingestion, laptop forecasting, app utilisation expansion, AI-enabled BI, Druva dashboards and continued data quality KPIs, moving toward a richer, persona-based decisioning model that combined performance, app usage, forecasting and AI-enabled analytics to improve refresh strategy and investment planning.</p>
+            </div>
+          </div>
 
-      <div class="tl-item pbr">
-        <span class="tl-dot"></span>
-        <div class="tl-card">
-          <div class="tl-meta"><span class="tl-quarter">FY26 Q2</span><span class="tl-phase-chip">Laptop Performance-Based Refresh &amp; decisioning</span></div>
-          <h4>Predictive &amp; Prescriptive Analytics</h4>
-          <p>Features focused on laptop refresh recommendations, forecasting, app utilisation discovery, Click2Chat KPI dashboards, DSI Assistant accuracy and the Snowflake Stage environment, expanding DSI into predictive and prescriptive analytics that supported better stock planning, laptop recommendation logic and service channel visibility.</p>
-        </div>
-      </div>
-
-      <div class="tl-item pbr">
-        <span class="tl-dot"></span>
-        <div class="tl-card">
-          <div class="tl-meta"><span class="tl-quarter">FY26 Q3</span><span class="tl-phase-chip">Laptop Performance-Based Refresh &amp; decisioning</span></div>
-          <h4>AI Scale, Resiliency &amp; Laptop Performance-Based Refresh Expansion</h4>
-          <p>The roadmap included Windows KPI AI summaries, support case and history table data quality KPIs, DSI Assistant resiliency, Laptop Performance-Based Refresh app utilisation, DBT Docs discovery, Fleet migration and AI-enabled dashboard creation, maturing the AI and refresh roadmap while improving data lineage, resiliency, observability and the speed to generate insight.</p>
-        </div>
-      </div>
-
-      <div class="tl-item pbr">
-        <span class="tl-dot"></span>
-        <div class="tl-card">
-          <div class="tl-meta"><span class="tl-quarter">FY26 Q4</span><span class="tl-phase-chip">Laptop Performance-Based Refresh &amp; decisioning</span></div>
-          <h4>Persona-Based Decisioning &amp; AI-Enabled BI</h4>
-          <p>Features included Laptop Performance-Based Refresh persona profiles, Splunk device observability ingestion, laptop forecasting, app utilisation expansion, AI-enabled BI, Druva dashboards and continued data quality KPIs, moving toward a richer, persona-based decisioning model that combined performance, app usage, forecasting and AI-enabled analytics to improve refresh strategy and investment planning.</p>
         </div>
       </div>
 
